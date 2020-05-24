@@ -33,7 +33,7 @@ export default class Book extends Component {
     };
 
     findAllLanguages = () => {
-        axios.get("http://localhost:8080/rest/books/languages")
+        axios.get("https://book-rest-api-reactjs.herokuapp.com/rest/books/languages")
             .then(response => response.data)
             .then((data) => {
                 this.setState({
@@ -46,7 +46,7 @@ export default class Book extends Component {
     };
 
     findAllGenres = () => {
-        axios.get("http://localhost:8080/rest/books/genres")
+        axios.get("https://book-rest-api-reactjs.herokuapp.com/rest/books/genres")
             .then(response => response.data)
             .then((data) => {
                 this.setState({
@@ -59,7 +59,7 @@ export default class Book extends Component {
     };
 
     /*findBookById = (bookId) => {
-        axios.get("http://localhost:8080/rest/books/" + bookId)
+        axios.get("https://book-rest-api-reactjs.herokuapp.com/rest/books/" + bookId)
             .then(response => {
                 if (response.data != null) {
                     this.setState({
@@ -79,7 +79,7 @@ export default class Book extends Component {
     };*/
 
     findBookById = (bookId) => {
-        fetch("http://localhost:8080/rest/books/" + bookId)
+        fetch("https://book-rest-api-reactjs.herokuapp.com/rest/books/" + bookId)
             .then(response => response.json())
             .then((book) => {
                 if (book) {
@@ -122,7 +122,7 @@ export default class Book extends Component {
             genre: this.state.genre
         };
 
-        axios.post("http://localhost:8080/rest/books", book)
+        axios.post("https://book-rest-api-reactjs.herokuapp.com/rest/books", book)
             .then(response => {
                 if (response.data != null) {
                     this.setState({"show": true, "method": "post"});
@@ -151,7 +151,7 @@ export default class Book extends Component {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        fetch("http://localhost:8080/rest/books", {
+        fetch("https://book-rest-api-reactjs.herokuapp.com/rest/books", {
             method: 'POST',
             body: JSON.stringify(book),
             headers
@@ -182,7 +182,7 @@ export default class Book extends Component {
             genre: this.state.genre
         };
 
-        axios.put("http://localhost:8080/rest/books", book)
+        axios.put("https://book-rest-api-reactjs.herokuapp.com/rest/books", book)
             .then(response => {
                 if (response.data != null) {
                     this.setState({"show": true, "method": "put"});
@@ -213,7 +213,7 @@ export default class Book extends Component {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        fetch("http://localhost:8080/rest/books", {
+        fetch("https://book-rest-api-reactjs.herokuapp.com/rest/books", {
             method: 'PUT',
             body: JSON.stringify(book),
             headers
