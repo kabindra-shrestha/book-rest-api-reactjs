@@ -43,7 +43,7 @@ export default class BookList extends Component {
     }
 
     /*findAllBooks() {
-        axios.get("/rest/books")
+        axios.get("http://localhost:8080/rest/books")
             .then(response => response.data)
             .then((data) => {
                 this.setState({books: data});
@@ -53,7 +53,7 @@ export default class BookList extends Component {
     findAllBooks(currentPage) {
         currentPage -= 1;
         let sortDir = this.state.sortToggle ? "asc" : "desc";
-        fetch("/rest/books?pageNumber=" + currentPage + "&pageSize=" + this.state.booksPerPage + "&sortBy=" + "title" + "&sortDir=" + sortDir)
+        fetch("http://localhost:8080/rest/books?pageNumber=" + currentPage + "&pageSize=" + this.state.booksPerPage + "&sortBy=" + "title" + "&sortDir=" + sortDir)
             .then(response => response.json())
             .then((data) => {
                 this.setState({
@@ -66,7 +66,7 @@ export default class BookList extends Component {
     }
 
     /*deleteBook = (bookId) => {
-        axios.delete("/rest/books/" + bookId)
+        axios.delete("http://localhost:8080/rest/books/" + bookId)
             .then(response => {
                 if (response.data != null) {
                     this.setState({"show": true});
@@ -81,7 +81,7 @@ export default class BookList extends Component {
     };*/
 
     deleteBook = (bookId) => {
-        fetch("/rest/books/" + bookId, {
+        fetch("http://localhost:8080/rest/books/" + bookId, {
             method: 'DELETE'
         }).then(response => response.json())
             .then((book) => {
@@ -165,7 +165,7 @@ export default class BookList extends Component {
 
     searchData = (currentPage) => {
         currentPage -= 1;
-        fetch("/rest/books/search/" + this.state.search + "?page=" + currentPage + "&size=" + this.state.booksPerPage)
+        fetch("http://localhost:8080/rest/books/search/" + this.state.search + "?page=" + currentPage + "&size=" + this.state.booksPerPage)
             .then(response => response.json())
             .then((data) => {
                 this.setState({
