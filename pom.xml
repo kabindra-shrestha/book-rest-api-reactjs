@@ -112,7 +112,7 @@
                         <phase>generate-resources</phase>
                         <configuration>
                             <target>
-                                <copy todir="${project.build.directory}/classes/static">
+                                <copy todir="${project.build.directory}/classes/public">
                                     <fileset dir="${project.basedir}/src/main/webapp/reactjs/build"/>
                                 </copy>
                             </target>
