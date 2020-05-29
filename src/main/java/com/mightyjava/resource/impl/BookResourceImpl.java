@@ -21,8 +21,7 @@ import java.util.TreeSet;
 
 @RestController
 @RequestMapping("/rest/books")
-@CrossOrigin(origins = "http://localhost:3000")
-//@CrossOrigin(origins = "https://book-rest-api-reactjs.herokuapp.com")
+@CrossOrigin(origins = "${frontend.endpoint}")
 public class BookResourceImpl implements Resource<Book> {
 
     @Autowired
