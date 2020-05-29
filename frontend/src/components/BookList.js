@@ -43,7 +43,7 @@ export default class BookList extends Component {
     }
 
     /*findAllBooks() {
-        axios.get("https://book-rest-api-reactjs.herokuapp.com/rest/books")
+        axios.get(process.env.REACT_APP_API_ENDPOINT + "/rest/books")
             .then(response => response.data)
             .then((data) => {
                 this.setState({books: data});
@@ -53,7 +53,7 @@ export default class BookList extends Component {
     findAllBooks(currentPage) {
         currentPage -= 1;
         let sortDir = this.state.sortToggle ? "asc" : "desc";
-        fetch("https://book-rest-api-reactjs.herokuapp.com/rest/books?pageNumber=" + currentPage + "&pageSize=" + this.state.booksPerPage + "&sortBy=" + "title" + "&sortDir=" + sortDir)
+        fetch(process.env.REACT_APP_API_ENDPOINT + "/rest/books?pageNumber=" + currentPage + "&pageSize=" + this.state.booksPerPage + "&sortBy=" + "title" + "&sortDir=" + sortDir)
             .then(response => response.json())
             .then((data) => {
                 this.setState({
@@ -66,7 +66,7 @@ export default class BookList extends Component {
     }
 
     /*deleteBook = (bookId) => {
-        axios.delete("https://book-rest-api-reactjs.herokuapp.com/rest/books/" + bookId)
+        axios.delete(process.env.REACT_APP_API_ENDPOINT + "/rest/books/" + bookId)
             .then(response => {
                 if (response.data != null) {
                     this.setState({"show": true});
@@ -81,7 +81,7 @@ export default class BookList extends Component {
     };*/
 
     deleteBook = (bookId) => {
-        fetch("https://book-rest-api-reactjs.herokuapp.com/rest/books/" + bookId, {
+        fetch(process.env.REACT_APP_API_ENDPOINT + "/rest/books/" + bookId, {
             method: 'DELETE'
         }).then(response => response.json())
             .then((book) => {
@@ -165,7 +165,7 @@ export default class BookList extends Component {
 
     searchData = (currentPage) => {
         currentPage -= 1;
-        fetch("https://book-rest-api-reactjs.herokuapp.com/rest/books/search/" + this.state.search + "?page=" + currentPage + "&size=" + this.state.booksPerPage)
+        fetch(process.env.REACT_APP_API_ENDPOINT + "/rest/books/search/" + this.state.search + "?page=" + currentPage + "&size=" + this.state.booksPerPage)
             .then(response => response.json())
             .then((data) => {
                 this.setState({
